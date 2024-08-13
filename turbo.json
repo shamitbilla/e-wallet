@@ -12,7 +12,18 @@
     },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "env": [
+        "PORT=3001",
+        "BUNDLE_APP=user-app"
+      ]
+    },
+    "dev:merchant-app": {
+      "env": [
+        "PORT=3000",
+        "BUNDLE_APP=merchant-app"
+      ]
     }
+    
   }
 }
