@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
+    "./pass-input": "./src/pass-input.tsx",
+    "./signin-card": "./src/signin-card.tsx",
+    "./app-bar": "./src/app-bar.tsx",
     "./button": "./src/button.tsx",
     "./card": "./src/card.tsx",
     "./InputBox": "./src/InputBox.tsx",
-    "./Heading" : "./src/Heading.tsx",
-    "./AppBar" : "./src/AppBar"
+    "./Heading" : "./src/Heading.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

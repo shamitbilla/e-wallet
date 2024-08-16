@@ -1,7 +1,8 @@
 "use client";
-import AppBar from "@repo/ui/AppBar"
+import {useBalance} from "../../../packages/store/src/hooks/useBalance"
+import {AppBar} from "@repo/ui/app-bar"
 
-export default function() {
+export default function Home() {
   return <div>
     <AppBar></AppBar>
   </div>

@@ -1,10 +1,8 @@
 "use client";
+import {useBalance} from "../../../packages/store/dist/hooks/useBalance"
 
-import { useBalance } from "@repo/store/useBalance";
-
-export default function() {
-  const balance = useBalance();
+export default function Home() {
   return <div>
-    hi there merchant {balance}
+    hi
   </div>
 }
