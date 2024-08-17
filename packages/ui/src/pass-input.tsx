@@ -11,7 +11,7 @@ export const PassInput = ({ onChange, ...props  } : any) => {
 
   return (
     <div className="max-w-sm">
-      <label className="block text-sm mb-2 text-gray-700">Password</label>
+      <label className="block text-sm mb-2 text-gray-700 text-gray-500">Password</label>
       <div className="relative">
         <input
           id="hs-toggle-password"

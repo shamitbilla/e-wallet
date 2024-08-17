@@ -1,20 +1,9 @@
 import Image from "next/image";
-import { Button } from "./button";
-import {useSession,  signIn, signOut} from "next-auth/react"
+import { NavButton } from "./nav-button";
+
+
 
 export function AppBar(){
-  const session = useSession();
-
-  const handleSignInOut = async ()=>{
-    if(session.data?.user)
-    {
-      await signOut();
-    }
-    else
-    {
-      await signIn();
-    }
-  }
 
   return (
       <div className="flex justify-between">
@@ -25,7 +14,7 @@ export function AppBar(){
           </div>
         </div>
         <div className="p-6">
-            <Button content={session.data?.user ? "Logout" : "Signin"} onClick={handleSignInOut}/>
+            <NavButton/>
         </div>
       </div>
   );

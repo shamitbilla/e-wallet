@@ -5,6 +5,8 @@ import { JWT_SECRET } from "@/config";
 // import userSigninType from "@repo/store/userSigninType"
 import {z} from "zod"
 import { basename } from "path";
+import { pages } from "next/dist/build/templates/app-page";
+import { signIn } from "next-auth/react";
 
 const userSigninSchema = z.object({
     csrfToken : z.string(),
@@ -56,14 +58,10 @@ export const authOptions = {
         async session({ token, session }: any) {
             session.user.id = token.sub
             return session
-        },
-        async redirect({ url, baseUrl } : any) {
-            // Allows relative callback URLs
-            if (url.startsWith("/")) return `${baseUrl}${url}`
-            // Allows callback URLs on the same origin
-            else if (new URL(url).origin === baseUrl) return url
-            return baseUrl
-          }
+        }
+    },
+    pages : {
+        signIn : "/signin"
     }   
     
 }
