@@ -1,6 +1,7 @@
 {
-  "name": "@repo/store",
-  "version": "1.0.0",
+  "name": "@shamit/wallet-common",
+  "version" : "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,6 +16,7 @@
   },
   "exports": {
     "./useBalance": "./src/hooks/useBalance",
-    "./userSigninType" : "./src/types"
+    "./userSigninType" : "./src/types",
+    "./userSignupType" : "./src/types"
   }
 }

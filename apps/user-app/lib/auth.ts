@@ -4,17 +4,13 @@ import db from "@repo/db/client"
 import { JWT_SECRET } from "@/config";
 // import userSigninType from "@repo/store/userSigninType"
 import {z} from "zod"
-import { basename } from "path";
-import { pages } from "next/dist/build/templates/app-page";
-import { signIn } from "next-auth/react";
+import { parse } from "path";
 
 const userSigninSchema = z.object({
-    csrfToken : z.string(),
-    phone : z.string().length(10),
-    password : z.string().min(1)
-});
-
-
+    phone: z.string().length(10),
+    password: z.string().min(1),
+  }).passthrough();
+  
 export const authOptions = {
     providers: [
       CredentialsProvider({
@@ -26,8 +22,9 @@ export const authOptions = {
         async authorize(credentials: Record<"phone" | "password", string> | undefined) {          
            const parsedCreds = await userSigninSchema.safeParse(credentials);
             if(!parsedCreds.success || !credentials)
+            {
                 return null;
-
+            }
             else{
                 const existingUser = await db.user.findFirst({
                     where: {
@@ -36,13 +33,17 @@ export const authOptions = {
                 });
 
                 if (existingUser) {
-                    const passwordValidation = await bcrypt.compare(credentials.password, existingUser.password);
+                    const passwordValidation = bcrypt.compareSync(credentials.password,existingUser.password);
                     if (passwordValidation) {
                         return {
                             id: existingUser.id.toString()
                         }
                     }
-                    return null;
+                    else
+                    {
+                        return null;
+                    }
+                    
                 }
 
                 return null;

@@ -24,7 +24,7 @@ export const SigninCard = () => {
     });
 
     if (result?.ok != true) {
-      setMsg("Invalid creds, try again") // Set the error message if sign-in fails
+      setMsg("Invalid creds, try again") 
     } else {
       router.push("/dashboard");
     }
@@ -53,6 +53,12 @@ export const SigninCard = () => {
           
             <div className='py-4'>
               <Button onClick={onClick} content='Sign in' height={45} width={386} />
+            </div>
+            <div className='px-3'>
+              Don't have an account? 
+              <span className='px-2 text-[#89CFF0]'>
+                <a href='/signup'>Sign Up</a> 
+              </span>
             </div>
         </div>
     </div>
