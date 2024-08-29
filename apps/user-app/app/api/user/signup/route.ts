@@ -50,12 +50,21 @@ export async function POST(req:NextRequest){
             });
         }
     
-        await db.user.create({
+        const newUser = await db.user.create({
             data : {
                 ...payload,
                 password : finalPassword
             }
         });
+
+        await db.balance.create({
+            data : {
+                userId : newUser.id,
+                amount : 0,
+                locked : 0
+            }
+        });
+
     
         return NextResponse.json({
             "password" : finalPassword

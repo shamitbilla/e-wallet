@@ -5,14 +5,26 @@ import Heading from "@repo/ui/Heading"
 import { PassInput } from './pass-input';
 import { Button } from './button';
 import { useState } from 'react';
-import {signIn} from "next-auth/react" 
+import {signIn, getSession} from "next-auth/react" 
 import {useRouter} from "next/navigation"
+import { useSetRecoilState } from 'recoil';
+import { userDataAtom } from '@repo/lib/atoms';
+
+
+interface User {
+  id: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  image?: string | null | undefined;
+}
 
 export const SigninCard = () => {
   const router = useRouter();
   const [phoneNumber,setphoneNumber] = useState();
   const [password,setPassword] = useState();
   const [msg,setMsg] = useState("Please login to access your account.");
+  const setUserData = useSetRecoilState(userDataAtom);
+
 
 
 
@@ -26,6 +38,12 @@ export const SigninCard = () => {
     if (result?.ok != true) {
       setMsg("Invalid creds, try again") 
     } else {
+      const session = await getSession();
+      const user = session?.user as User;
+      await setUserData({
+        id : user?.id
+      });
+
       router.push("/dashboard");
     }
   }
