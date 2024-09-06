@@ -1,14 +1,11 @@
-import { AppBar } from "@repo/ui/app-bar";
-import {BalanceCard} from "@repo/ui/balance-card" 
+import {BalanceCard} from "@repo/ui/balance-card"
+import {RecentTransactions} from "@repo/ui/recent-transactions" 
 
 export default async function Page() {
   return (
     <div>
-      <AppBar/>
-      <div className="bg-[#f1f4f9] h-screen">
+        <RecentTransactions></RecentTransactions>
         <BalanceCard></BalanceCard>
-      </div>
-      
     </div>
   );
 }

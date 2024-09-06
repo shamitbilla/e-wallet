@@ -2,12 +2,9 @@
 
 import Card from "./card";
 import {useBalance} from "@repo/lib/hooks/useBalance"
-import {useSession} from "next-auth/react"
 
 export function BalanceCard(){
-  const session = useSession();
-  //@ts-ignore
-  const [balance,setBalance] = useBalance(session.data?.user?.id);
+  const balance = useBalance();
   return (
     <div className="">
         <Card title={"Account Balance"}>

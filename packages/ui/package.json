@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
+    "./balance": "./src/balance.tsx",
+    "./transfer-card": "./src/transfer-card.tsx",
+    "./recent-transactions": "./src/recent-transactions.tsx",
     "./balance-card": "./src/balance-card.tsx",
     "./signup-card": "./src/signup-card.tsx",
     "./nav-button": "./src/nav-button.tsx",
