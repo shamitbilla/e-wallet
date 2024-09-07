@@ -3,6 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
+    "./avatar": "./src/avatar.tsx",
+    "./transaction-tab": "./src/transaction-tab.tsx",
+    "./p2p-balance": "./src/p2p-balance.tsx",
+    "./p2p-transfer-main": "./src/p2p-transfer-main.tsx",
+    "./p2p-transfer": "./src/p2p-transfer.tsx",
     "./balance": "./src/balance.tsx",
     "./transfer-card": "./src/transfer-card.tsx",
     "./recent-transactions": "./src/recent-transactions.tsx",

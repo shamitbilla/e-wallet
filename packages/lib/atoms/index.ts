@@ -11,3 +11,8 @@ export const userDataAtom = atom({
         id : ""
     }
 });
+
+export const userNameAtom = atom({
+    key : "userNameAtom",
+    default : "Anonymous"
+});

@@ -2,6 +2,7 @@
 
 import {useSession, signIn, signOut} from "next-auth/react"
 import { Button } from "./button";
+import { Avatar } from "./avatar";
 
 export function NavButton(){
   const session = useSession();
