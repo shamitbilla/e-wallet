@@ -90,7 +90,7 @@ export const TransferCard = () => {
             </div>
             <div className="p-4 py-2 flex justify-center">
               <button className="bg-gradient-to-bl from-[#3a72ec] to-blue-700 hover:bg-gradient-to-bl hover:from-[#3a72ec] hover:to-blue-900 text-white font-bold py-2 px-4 rounded w-full" onClick={async ()=>{
-                await bankTransfer({amount,action});
+                await bankTransfer({amount,action, provider : bank});
               }}>
                 {action==2? "Withdraw from" : "Deposit to"} your E-Wallet
               </button>
@@ -104,7 +104,7 @@ export const TransferCard = () => {
                   Current Balance
                 </div>
                 <div className="text-white font-bold text-3xl px-6 pt-12">
-                    <Balance>hey</Balance> 
+                    <Balance></Balance> 
                 </div>
                 <div className="text-blue-100 px-5 py-2">
                   Available for transfer
